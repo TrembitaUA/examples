@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://ws.training.uxp.sx.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.training.uxp.sx.com/">
+
+<xs:element name="create" type="tns:create" />
+
+<xs:element name="createResponse" type="tns:createResponse" />
+
+<xs:element name="destroy" type="tns:destroy" />
+
+<xs:element name="destroyResponse" type="tns:destroyResponse" />
+
+<xs:element name="documents" type="tns:documents" />
+
+<xs:element name="downloadFile" type="tns:downloadFile" />
+
+<xs:element name="downloadFileResponse" type="tns:downloadFileResponse" />
+
+<xs:element name="findDataByInn" type="tns:findDataByInn" />
+
+<xs:element name="findDataByInnResponse" type="tns:findDataByInnResponse" />
+
+<xs:element name="listAllData" type="tns:listAllData" />
+
+<xs:element name="listAllDataResponse" type="tns:listAllDataResponse" />
+
+<xs:element name="listPagedData" type="tns:listPagedData" />
+
+<xs:element name="listPagedDataResponse" type="tns:listPagedDataResponse" />
+
+<xs:element name="people" type="tns:people" />
+
+<xs:element name="uploadFile" type="tns:uploadFile" />
+
+<xs:element name="uploadFileResponse" type="tns:uploadFileResponse" />
+
+<xs:complexType name="listPagedData">
+<xs:sequence>
+<xs:element name="fromIndex" type="xs:int" />
+<xs:element name="rowsCount" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listPagedDataResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:people" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="people">
+<xs:sequence>
+<xs:element name="birthdate" type="xs:dateTime" minOccurs="0" />
+<xs:element name="documentsCollection" type="tns:documents" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="firstname" type="xs:string" minOccurs="0" />
+<xs:element name="id" type="xs:int" minOccurs="0" />
+<xs:element name="inn" type="xs:string" minOccurs="0" />
+<xs:element name="passportNum" type="xs:string" minOccurs="0" />
+<xs:element name="passportSer" type="xs:string" minOccurs="0" />
+<xs:element name="patronymic" type="xs:string" minOccurs="0" />
+<xs:element name="surname" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="documents">
+<xs:sequence>
+<xs:element name="data" type="xs:base64Binary" minOccurs="0" />
+<xs:element name="fileName" type="xs:string" minOccurs="0" />
+<xs:element name="id" type="xs:int" minOccurs="0" />
+<xs:element name="PId" type="tns:people" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findDataByInn">
+<xs:sequence>
+<xs:element name="inn" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findDataByInnResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:people" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="uploadFile">
+<xs:sequence>
+<xs:element name="clientId" type="xs:int" minOccurs="0" />
+<xs:element name="data" type="xs:base64Binary" nillable="true" minOccurs="0" />
+<xs:element name="fileName" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="uploadFileResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="downloadFile">
+<xs:sequence>
+<xs:element name="fileId" type="xs:int" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="downloadFileResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:documents" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="create">
+<xs:sequence>
+<xs:element name="data" type="tns:people" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="listAllData">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="listAllDataResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:people" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="destroy">
+<xs:sequence>
+<xs:element name="destroyId" type="xs:int" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="destroyResponse">
+<xs:sequence />
+</xs:complexType>
+</xs:schema>

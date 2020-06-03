@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions 
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://trembita.gov.ua/TrembitaSoap/"
+    targetNamespace="http://trembita.gov.ua/TrembitaSoap/" 
+    name="TrembitaSoapService">
+    <types>
+        <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema"
+                    targetNamespace="http://trembita.gov.ua/TrembitaSoap/">
+            <xsd:element name="getPersonInfo" type="tns:getPersonInfo"/>
+            <xsd:element name="getPersonInfoResponse" type="tns:getPersonInfoResponse"/>
+            <xsd:complexType name="getPersonInfo">
+                <xsd:sequence>
+                    <xsd:element name="inn" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="getPersonInfoResponse">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="passport_num" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="passport_ser" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="birthdate" type="xsd:date"/>
+                    <xsd:element minOccurs="0" name="surname" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="firstname" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="inn" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </types>
+    <message name="getPersonInfo">
+        <part name="parameters" element="tns:getPersonInfo"/>
+    </message>
+    <message name="getPersonInfoResponse">
+        <part name="parameters" element="tns:getPersonInfoResponse"/>
+    </message>
+    <portType name="TrembitaSoap">
+        <operation name="getPersonInfo">
+            <input message="tns:getPersonInfo"/>
+            <output message="tns:getPersonInfoResponse"/>
+        </operation>
+    </portType>
+    <binding name="TrembitaSoapPortBinding" type="tns:TrembitaSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="getPersonInfo">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="TrembitaSoapService">
+        <port name="TrembitaSoapPort" binding="tns:TrembitaSoapPortBinding">
+            <soap:address location="http://192.168.122.181/ws/TrembitaSoapService.php"/>
+        </port>
+    </service>
+</definitions>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Этот файл используется процессом публикации или упаковки вашего веб-проекта. Можно настроить поведение этого процесса,
+изменив этот файл MSBuild. Подробности см. на странице https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAVBI7kjf2MkuKO5ybMqBXdAAAAAACAAAAAAAQZgAAAAEAACAAAACX6wbvVTsSNqzMcUeZhh0FVCPu02Svcwy85074n9pbgAAAAAAOgAAAAAIAACAAAAAvRNQRbDUmrn9qzPs7wscLYxHT8fhI1p0OVwf19m7S9BAAAABswGr5uztlwgjMAbXlhbWlQAAAAMxHcFL5M/a+Iow0B6UTzRhSPc2jMKnrOiusyl4ICLBAs5dL7GFwsvPjZ3/Fnyo9EC39BU5Bj6DpNpmCV15mYDk=</EncryptedPassword>
+    <_PublishTargetUrl>ftp://localhost/app1</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="AppService.svc">
+      <publishTime>05/13/2020 16:58:32</publishTime>
+    </File>
+    <File Include="bin/AppService.dll">
+      <publishTime>05/16/2020 09:42:42</publishTime>
+    </File>
+    <File Include="bin/AppService.pdb">
+      <publishTime>05/16/2020 09:42:42</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>10/23/2017 13:15:18</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>10/23/2017 13:15:20</publishTime>
+    </File>
+    <File Include="bin/ru/EntityFramework.resources.dll">
+      <publishTime>10/23/2017 13:15:34</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/16/2020 09:42:43</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

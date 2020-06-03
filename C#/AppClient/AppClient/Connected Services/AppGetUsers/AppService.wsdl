@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:xroad="http://x-road.eu/xsd/xroad.xsd" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AppService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IAppService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/AppService" />
+      <xs:element name="GetUsers">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUsersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AppService" minOccurs="0" name="GetUsersResult" nillable="true" type="q1:ArrayOfAppUser" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetByFilter">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Filter" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetByFilterResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AppService" minOccurs="0" name="GetByFilterResult" nillable="true" type="q2:ArrayOfAppUser" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AppService" minOccurs="0" name="User" nillable="true" type="q3:AppUser" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AddUserResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UploadDocument">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Inn" nillable="true" type="xs:string" />
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/AppService" minOccurs="0" name="file" nillable="true" type="q4:File" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UploadDocumentResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DownloadDocument">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Inn" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DownloadDocumentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/AppService" minOccurs="0" name="DownloadDocumentResult" nillable="true" type="q5:File" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/AppService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AppService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfAppUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AppUser" nillable="true" type="tns:AppUser" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAppUser" nillable="true" type="tns:ArrayOfAppUser" />
+      <xs:complexType name="AppUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Birthdate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Firstname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Inn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Passport_num" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Passport_ser" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Patronymic" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AppUser" nillable="true" type="tns:AppUser" />
+      <xs:complexType name="File">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Content" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="File" nillable="true" type="tns:File" />
+    </xs:schema>
+    <xs:schema xmlns="http://x-road.eu/xsd/identifiers" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" elementFormDefault="qualified" targetNamespace="http://x-road.eu/xsd/identifiers" jxb:version="2.1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="XRoadIdentifierType">
+        <xs:annotation>
+          <xs:documentation>Globally unique identifier in the XROAD system. Identifier consists of object type specifier and list of hierarchical codes (starting with code that identifiers the XROAD instance).</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="xRoadInstance" />
+          <xs:element minOccurs="0" ref="memberClass" />
+          <xs:element minOccurs="0" ref="memberCode" />
+          <xs:element minOccurs="0" ref="subsystemCode" />
+          <xs:element minOccurs="0" ref="serviceCode" />
+          <xs:element minOccurs="0" ref="serviceVersion" />
+        </xs:sequence>
+        <xs:attribute ref="objectType" use="required" />
+      </xs:complexType>
+      <xs:simpleType name="XRoadObjectType">
+        <xs:annotation>
+          <xs:documentation>Enumeration for XROAD identifier types.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="MEMBER" />
+          <xs:enumeration value="SUBSYSTEM" />
+          <xs:enumeration value="SERVICE" />
+          <xs:enumeration value="CENTRALSERVICE" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="xRoadInstance" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Identifies the XROAD instance. This field is applicable to all identifier types.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="memberClass" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Type of the member (company, government institution, private person, etc.)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="memberCode" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Code that uniquely identifies a member of given member type.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="subsystemCode" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Code that uniquely identifies a subsystem of given XROAD member.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="serviceCode" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Code that uniquely identifies a service offered by given XROAD member or subsystem.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="serviceVersion" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Version of the service.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:attribute name="objectType" type="XRoadObjectType" />
+      <xs:complexType name="XRoadClientIdentifierType">
+        <xs:complexContent mixed="false">
+          <xs:restriction base="XRoadIdentifierType">
+            <xs:sequence>
+              <xs:element ref="xRoadInstance" />
+              <xs:element ref="memberClass" />
+              <xs:element ref="memberCode" />
+              <xs:element minOccurs="0" ref="subsystemCode" />
+            </xs:sequence>
+            <xs:attribute ref="objectType" use="required" />
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="XRoadServiceIdentifierType">
+        <xs:complexContent mixed="false">
+          <xs:restriction base="XRoadIdentifierType">
+            <xs:sequence>
+              <xs:element ref="xRoadInstance" />
+              <xs:element ref="memberClass" />
+              <xs:element ref="memberCode" />
+              <xs:element minOccurs="0" ref="subsystemCode" />
+              <xs:element ref="serviceCode" />
+              <xs:element minOccurs="0" ref="serviceVersion" />
+            </xs:sequence>
+            <xs:attribute fixed="SERVICE" ref="objectType" use="required" />
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns="http://x-road.eu/xsd/xroad.xsd" xmlns:id="http://x-road.eu/xsd/identifiers" elementFormDefault="qualified" targetNamespace="http://x-road.eu/xsd/xroad.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://x-road.eu/xsd/identifiers" />
+      <xs:element name="version" type="xs:string" />
+      <xs:element name="client" type="id:XRoadClientIdentifierType" />
+      <xs:element name="service" type="id:XRoadServiceIdentifierType" />
+      <xs:element name="userId" type="xs:string" />
+      <xs:element fixed="4.0" name="protocolVersion" type="xs:string" />
+      <xs:element name="id" type="xs:string" />
+      <xs:element name="title">
+        <xs:annotation>
+          <xs:documentation>Title</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string" />
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="notes">
+        <xs:annotation>
+          <xs:documentation>Notes for user</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string" />
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="requestheader">
+    <wsdl:part name="protocolVersion" element="xroad:protocolVersion" />
+    <wsdl:part name="id" element="xroad:id" />
+    <wsdl:part name="userId" element="xroad:userId" />
+    <wsdl:part name="service" element="xroad:service" />
+    <wsdl:part name="client" element="xroad:client" />
+  </wsdl:message>
+  <wsdl:message name="IAppService_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IAppService_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAppService">
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppService/GetUsers" message="tns:IAppService_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppService/GetUsersResponse" message="tns:IAppService_GetUsers_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAppService" type="tns:IAppService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IAppService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IAppService/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:requestheader" part="protocolVersion" use="literal" />
+        <soap:header message="tns:requestheader" part="id" use="literal" />
+        <soap:header message="tns:requestheader" part="userId" use="literal" />
+        <soap:header message="tns:requestheader" part="service" use="literal" />
+        <soap:header message="tns:requestheader" part="client" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:requestheader" part="protocolVersion" use="literal" />
+        <soap:header message="tns:requestheader" part="id" use="literal" />
+        <soap:header message="tns:requestheader" part="userId" use="literal" />
+        <soap:header message="tns:requestheader" part="service" use="literal" />
+        <soap:header message="tns:requestheader" part="client" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AppService">
+    <wsdl:port name="BasicHttpBinding_IAppService" binding="tns:BasicHttpBinding_IAppService">
+      <soap:address location="http://192.168.1.52:80/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

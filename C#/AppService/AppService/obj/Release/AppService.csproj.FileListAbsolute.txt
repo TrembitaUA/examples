@@ -1,0 +1,13 @@
+C:\Users\andrey\source\repos\AppService\AppService\bin\AppService.dll.config
+C:\Users\andrey\source\repos\AppService\AppService\bin\AppService.dll
+C:\Users\andrey\source\repos\AppService\AppService\bin\AppService.pdb
+C:\Users\andrey\source\repos\AppService\AppService\bin\EntityFramework.dll
+C:\Users\andrey\source\repos\AppService\AppService\bin\EntityFramework.SqlServer.dll
+C:\Users\andrey\source\repos\AppService\AppService\bin\EntityFramework.xml
+C:\Users\andrey\source\repos\AppService\AppService\bin\EntityFramework.SqlServer.xml
+C:\Users\andrey\source\repos\AppService\AppService\bin\ru\EntityFramework.resources.dll
+C:\Users\andrey\source\repos\AppService\AppService\obj\Release\AppService.csprojAssemblyReference.cache
+C:\Users\andrey\source\repos\AppService\AppService\obj\Release\AppService.csproj.CoreCompileInputs.cache
+C:\Users\andrey\source\repos\AppService\AppService\obj\Release\AppService.csproj.CopyComplete
+C:\Users\andrey\source\repos\AppService\AppService\obj\Release\AppService.dll
+C:\Users\andrey\source\repos\AppService\AppService\obj\Release\AppService.pdb
