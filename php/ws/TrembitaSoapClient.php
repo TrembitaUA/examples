@@ -9,6 +9,10 @@ const MEMBER_CODE = "[MEMBER_CODE]";
 const SUBSYSTEM_CODE = "[SUBSYSTEM_CODE]";
 const SERVICE_CODE = "getPersonInfo";
 const USERID_CODE = "[USERID_CODE]";
+// Для прикладу використовуются такіж значення, 
+// але на практиці значення повинні разрізнятись
+const MEMBER_CODE_CLIENT = "[MEMBER_CODE]";
+const SUBSYSTEM_CODE_CLIENT = "[SUBSYSTEM_CODE]";
 // Посилання для отримання WSDL Web-service від UXP сервера
 /* $wsdlurl = "http://".UXP_SERVER_ADDRESS."/wsdl?xRoadInstance=".XROAD_INSTANCE
 ."&memberClass=".MEMBER_CLASS."&memberCode=".MEMBER_CODE
@@ -71,8 +75,8 @@ function callPersonInfoService($inn){
     $xml = '<ns2:client ns3:objectType="SUBSYSTEM" xmlns:ns3="'.$nsident.'">'
         . "<ns3:xRoadInstance>". XROAD_INSTANCE ."</ns3:xRoadInstance>"
         . "<ns3:memberClass>". MEMBER_CLASS ."</ns3:memberClass>"
-        . "<ns3:memberCode>". MEMBER_CODE ."</ns3:memberCode>"
-        . "<ns3:subsystemCode>". SUBSYSTEM_CODE ."</ns3:subsystemCode>"
+        . "<ns3:memberCode>". MEMBER_CODE_CLIENT ."</ns3:memberCode>"
+        . "<ns3:subsystemCode>". SUBSYSTEM_CODE_CLIENT ."</ns3:subsystemCode>"
         . "</ns2:client>";
     $clientsoapvar = new SoapVar($xml, XSD_ANYXML);
     $clientHeader = new SoapHeader($nsxroad, 'client', $clientsoapvar);
